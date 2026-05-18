@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+\.env
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+logs/
+*.log
+
+# SQLite DB
+*.db
+
+# n8n local
+.n8n-local/
+.node22/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.dbvenv/
+.env
+__pycache__/
+*.pyc
+logs/
+uploads/

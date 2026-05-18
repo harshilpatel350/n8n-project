@@ -1,0 +1,38 @@
+1) Create the virtual environment
+   python -m venv venv
+
+2) Activate the virtual environment (PowerShell)
+   .\venv\Scripts\Activate.ps1
+
+3) Upgrade pip and install dependencies
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+
+4) Create the environment file
+   Copy-Item .env.example .env
+
+5) Set required variables in .env
+   OPENAI_API_KEY=your_openai_key
+   N8N_WEBHOOK_URL=your_n8n_webhook_url
+
+6) Run the Streamlit app
+   streamlit run app.py
+
+7) Start n8n (choose one)
+   - Local: n8n start
+   - Docker: docker run -it --rm -p 5678:5678 n8nio/n8n
+
+8) Import the workflow
+   - Open http://localhost:5678
+   - Import workflows/n8n_workflow.json
+   - Configure Google Sheets and SMTP credentials
+
+9) Troubleshooting
+   - If OpenAI errors occur, confirm the API key and model access.
+   - If webhook errors occur, verify the n8n URL and webhook path.
+   - If PDF extraction fails, try a text-based PDF (not scanned).
+
+10) Extension guide
+   - Update scoring weights in utils/constants.py
+   - Add new outputs in utils/prompts.py and app.py
+   - Extend storage columns in services/candidate_service.py
