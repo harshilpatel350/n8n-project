@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000'
+
 export default function Home() {
   const [file, setFile] = useState(null)
   const [job, setJob] = useState('')
@@ -15,7 +17,7 @@ export default function Home() {
     fd.append('job_description', job)
     try {
       setLoading(true)
-      const resp = await axios.post('http://localhost:8000/api/upload', fd, {
+      const resp = await axios.post(`${API_BASE_URL}/api/upload`, fd, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       setResult(resp.data)
